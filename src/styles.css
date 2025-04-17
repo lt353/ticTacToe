@@ -1,19 +1,29 @@
-/*basic styling for template at the start*/
 body {
-  background-color: #282c34;
-  color: white;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 16px;
+  font-family: Roboto, Helvetica, sans-serif;
   text-align: center;
-  padding: 20px;
 }
-p {
-  color: #61dafb;
-  font-size: 18px;
-  margin: 10px 0;
+
+.X {
+  color: red;
 }
-h1 {
-  color: #bd9ee9;
-  font-size: 56px;
-  margin-bottom: 20px;
+      
+.O {
+ color: blue;
 }
+
+#game-grid {
+  font: 85px arial, sans-serif;
+  margin: 3px;             
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+#game-grid > button {   
+   text-align: center;
+   font-size: 100%;
+   font-family: inherit;
+}
+
