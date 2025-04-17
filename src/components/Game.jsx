@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import GameGrid from "./GameGrid";
 
 // TODO: Import useState() hook
@@ -6,15 +6,25 @@ import GameGrid from "./GameGrid";
 function Game() {
 
    // TODO: Replace variables with state variables
-   const moves = new Array(9).fill("");
-   const turn = "X";
+   const [moves, setMoves] = useState(new Array(9).fill(""));
+   const [turn, setTurn] = useState("X");
   
    function gridClick(whichSquare) {
       // TODO: Replace with code to set the move and turn
-      alert("Clicked on " + whichSquare);
+      if (moves[whichSquare] === "") {
+         const movesCopy = [...moves];
+         movesCopy[whichSquare] = turn;
+         setMoves(movesCopy);
+         setTurn(turn === "X" ? "O" : "X");
+      }
+
    }
 
    // TODO: Add newGame() function here
+    function newGame() {
+      setMoves(new Array(9).fill(""));
+      setTurn("X");
+    }
   
    // TODO: Make New Game button to call newGame() when clicked
    return (
@@ -25,7 +35,7 @@ function Game() {
             Turn: <strong className={turn}>{turn}</strong>
          </p>
          <p>
-            <button>New Game</button>
+            <button onClick={newGame}>New Game</button>
          </p>
       </>
    );
